@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAssetPreloader } from '@/hooks/useAssetPreloader';
-import Loader from '@/components/ui/animated-loader-1';
+import { useAssetPreloader } from '../../hooks/useAssetPreloader';
+import Loader from '../ui/animated-loader-1';
 
 interface PreloaderProps {
   assetUrls: string[];

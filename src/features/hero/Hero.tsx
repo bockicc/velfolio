@@ -1,1 +1,1 @@
-export { default as Hero } from '@/components/ui/glassmorphism-trust-hero';
+export { default as Hero } from '../../components/ui/glassmorphism-trust-hero';

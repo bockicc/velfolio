@@ -21,7 +21,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <div className="overflow-hidden rounded-2xl border border-white/[0.06] bg-gradient-to-b from-zinc-900/80 to-zinc-950/80 shadow-md transition-all duration-500 hover:-translate-y-1 hover:border-white/[0.12] hover:shadow-xl hover:shadow-black/30">
         <div className="aspect-video w-full overflow-hidden bg-zinc-800/50">
           <img
-            src={project.image}
+            src={import.meta.env.BASE_URL + project.image}
             alt={project.title}
             className="h-full w-full object-cover"
             loading="lazy"

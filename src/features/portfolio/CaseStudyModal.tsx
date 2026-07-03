@@ -15,7 +15,7 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
       <motion.div layoutId={`project-${project.id}`}>
         <div className="mb-4 aspect-video w-full overflow-hidden rounded-lg bg-zinc-800">
           <img
-            src={project.image}
+            src={import.meta.env.BASE_URL + project.image}
             alt={project.title}
             className="h-full w-full object-cover"
             loading="lazy"

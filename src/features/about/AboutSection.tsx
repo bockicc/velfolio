@@ -1,4 +1,4 @@
-import { Code2, Sparkles, Target } from 'lucide-react';
+import { Code2, TrendingUp, Clapperboard, Zap } from 'lucide-react';
 
 const highlights = [
   {
@@ -7,22 +7,21 @@ const highlights = [
     desc: 'Kreiram brze, moderne web site-ove koji izgledaju vrhunski. Fokusiram se na spajanje estetike i funkcionalnosti za najbolje korisničko iskustvo.',
   },
   {
-    icon: Sparkles,
+    icon: TrendingUp,
     title: 'Digitalni Marketing & Branding',
     desc: 'Pomažem brendovima da se istaknu u digitalnom svetu kroz strategije koje privlače pažnju i povećavaju prisustvo na mreži.',
   },
   {
-    icon: Target,
+    icon: Clapperboard,
     title: 'Kreativna Produkcija',
     desc: 'Vizuelno pričam Vaše priče kroz profesionalnu video montažu i obradu fotografija, davajući Vašem brendu jedinstven vizuelni identitet.',
   },
     {
-    icon: Target,
+    icon: Zap,
     title: 'Brzina & Preciznost',
     desc: 'Radim efikasno, poštujući zahteve i rokove. Svaki projekat tretiram kao prioritet, sa fokusom na savršenstvo u svakoj fazi.',
   },
 ];
-
 export function AboutSection() {
   return (
     <section id="about" className="mx-auto max-w-6xl px-4 py-24 md:py-32">
@@ -31,7 +30,7 @@ export function AboutSection() {
           <h2 className="text-3xl font-bold text-white md:text-4xl">Moja malenkost</h2>
           <p className="mt-3 text-base leading-relaxed text-zinc-400">
             Ja ( Veljko Bocić ) sam klinac iz Srbije koji je lud za računarima i tehnologijom
-            generalno. Za sada sam se pronašao u web developmentu, ali ču se u budučnosti okušati
+            generalno. Za sada sam se pronašao u web developmentu, ali ću se u budučnosti okušati
             i u drugim oblastima. Druge oblasti poput digitalnog marketinga, UI/UX dizajna, video
             produkcije i photo montaže su mi takođe interesantne, ali konkretno sam trenutno
             fokusiran na web development. U slobodno vreme volim da istražujem razne alate / jezike,

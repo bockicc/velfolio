@@ -45,12 +45,12 @@ export function ProjectGrid() {
         Pažljivo kreirana digitalna rešenja koja spajaju moderan dizajn, odličnu funkcionalnost i visoke performanse.
       </p>
 
-      <div className="mt-10 flex flex-wrap items-center gap-2 rounded-2xl border border-white/[0.06] bg-zinc-900/50 p-1.5 w-fit">
+      <div className="mt-10 grid grid-cols-2 gap-2 rounded-2xl border border-white/[0.06] bg-zinc-900/50 p-1.5 sm:flex sm:flex-wrap sm:w-fit">
         {filters.map(({ id, label, icon: Icon }) => (
           <button
             key={id}
             onClick={() => setActiveFilter(id)}
-            className={`relative flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
+            className={`relative flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors sm:justify-start ${
               activeFilter === id
                 ? 'text-white'
                 : 'text-zinc-500 hover:text-zinc-300'

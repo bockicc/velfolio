@@ -1,4 +1,5 @@
 import { ArrowRight, Crown, Rocket } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 function StatItem({ value, label }: { value: string; label: string }) {
   return (
@@ -80,9 +81,13 @@ export default function HeroSection() {
 
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20">
+                  <motion.div
+                    className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20"
+                    animate={{ rotate: 360 }}
+                    transition={{ repeat: Infinity, duration: 5, ease: 'linear' }}
+                  >
                     <Rocket className="h-6 w-6 text-white" />
-                  </div>
+                  </motion.div>
                   <div>
                     <div className="text-3xl font-bold tracking-tight text-white">15+</div>
                     <div className="text-sm text-zinc-400">Lansirana projekta</div>
@@ -92,10 +97,16 @@ export default function HeroSection() {
                 <div className="space-y-3 mb-8">
                   <div className="flex justify-between text-sm">
                     <span className="text-zinc-400">Zadovoljstvo mojih klijenata</span>
-                    <span className="text-white font-medium">94%</span>
+                    <span className="text-white font-medium">99%</span>
                   </div>
                   <div className="h-2 w-full overflow-hidden rounded-full bg-zinc-800/50">
-                    <div className="h-full w-[94%] rounded-full bg-gradient-to-r from-white to-zinc-400" />
+                    <motion.div
+                      className="h-full rounded-full bg-gradient-to-r from-white to-zinc-400"
+                      initial={{ width: '0%' }}
+                      whileInView={{ width: '94%' }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.2, ease: 'easeOut' }}
+                    />
                   </div>
                 </div>
 

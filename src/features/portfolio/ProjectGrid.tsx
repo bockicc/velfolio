@@ -1,17 +1,95 @@
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Globe, Video, Palette, Megaphone, Lock } from 'lucide-react';
 import { projects } from './projects.data';
 import { ProjectCard } from './ProjectCard';
+import type { ProjectCategory } from '../../types/project';
+
+const filters: { id: ProjectCategory; label: string; icon: typeof Globe }[] = [
+  { id: 'web', label: 'Web', icon: Globe },
+  { id: 'video', label: 'Video', icon: Video },
+  { id: 'design', label: 'Design', icon: Palette },
+  { id: 'marketing', label: 'Marketing', icon: Megaphone },
+];
+
+function ComingSoon({ category }: { category: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+      className="col-span-full flex flex-col items-center justify-center py-20 text-center"
+    >
+      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800/50 ring-1 ring-white/5 mb-5">
+        <Lock className="h-7 w-7 text-zinc-500" />
+      </div>
+      <p className="text-lg font-semibold text-zinc-300">Coming Soon</p>
+      <p className="mt-1.5 text-sm text-zinc-500">
+        {category} radovi su u pripremi. Pogledaj Web projekte.
+      </p>
+    </motion.div>
+  );
+}
 
 export function ProjectGrid() {
+  const [activeFilter, setActiveFilter] = useState<ProjectCategory>('web');
+
+  const filteredProjects = projects.filter((p) => p.category === activeFilter);
+  const showComingSoon = activeFilter !== 'web';
+
   return (
     <section id="portfolio" className="mx-auto max-w-6xl px-4 py-24 md:py-32">
       <h2 className="text-3xl font-bold text-white md:text-4xl">Moji radovi</h2>
       <p className="mt-3 max-w-lg text-zinc-400">
         Pažljivo kreirana digitalna rešenja koja spajaju moderan dizajn, odličnu funkcionalnost i visoke performanse.
       </p>
-      <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} />
+
+      <div className="mt-10 flex flex-wrap items-center gap-2 rounded-2xl border border-white/[0.06] bg-zinc-900/50 p-1.5 w-fit">
+        {filters.map(({ id, label, icon: Icon }) => (
+          <button
+            key={id}
+            onClick={() => setActiveFilter(id)}
+            className={`relative flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
+              activeFilter === id
+                ? 'text-white'
+                : 'text-zinc-500 hover:text-zinc-300'
+            }`}
+          >
+            {activeFilter === id && (
+              <motion.div
+                layoutId="activeFilter"
+                className="absolute inset-0 rounded-xl bg-white/10"
+                transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10 flex items-center gap-2">
+              <Icon className="h-4 w-4" />
+              {label}
+            </span>
+          </button>
         ))}
+      </div>
+
+      <div className="mt-10">
+        <AnimatePresence mode="wait">
+          {showComingSoon ? (
+            <ComingSoon key={activeFilter} category={filters.find((f) => f.id === activeFilter)?.label ?? ''} />
+          ) : (
+            <motion.div
+              key="projects"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {filteredProjects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} index={index} />
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <div className="relative left-1/2 -mx-[50vw] mt-24 w-screen overflow-hidden border-y border-zinc-800">

@@ -68,21 +68,21 @@ const categories: Category[] = [
     {
     icon: PenTool,
     title: 'Kreiranje sadržaja',
-    subtext: 'Pisanje tekstova i kreiranje digitalnog narativa.',
+    subtext: 'Pisanje teksta, copywriting i kreiranje digitalnog sadržaja koji privlači i konvertuje.',
     tools: [],
     locked: true,
   },
   {
     icon: Film,
     title: 'Video Produkcija',
-    subtext: 'Montaža i produkcija video sadržaja',
+    subtext: 'Snimanje, montaža i produkcija video sadržaja visokog kvaliteta.',
     tools: [],
     locked: true,
   },
   {
     icon: Palette,
     title: 'Digitalni Dizajn',
-    subtext: 'Grafički dizajn i obrada slika',
+    subtext: 'Grafički dizajn, brending i kreiranje vizuelnog identiteta.',
     tools: [],
     locked: true,
   },
@@ -191,10 +191,9 @@ export function SkillGrid() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl font-bold text-white md:text-4xl">Moje sfere ekspertize</h2>
+        <h2 className="text-3xl font-bold text-white md:text-4xl">Oblasti u kojima se ističem</h2>
         <p className="mt-3 max-w-lg text-zinc-400">
-          Ekspertize u raznim oblastima, od web razvoja do video produkcije i digitalnog dizajna, koje sam stekao kroz
-          godine iskustva i posvećenosti učenju i usavršavanju.
+          Kombinujem višegodišnje iskustvo u web developmentu, dizajnu, digitalnom marketingu i kreativnoj produkciji.
         </p>
       </motion.div>
 

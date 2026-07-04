@@ -4,31 +4,31 @@ const services = [
   {
     icon: LayoutGrid,
     title: 'Web & E-commerce Rešenja',
-    desc: 'Dizajniram i razvijam brze, moderne i skalabilne veb platforme koje su prilagođene tvojim poslovnim ciljevima i svim tipovima uređaja.',
+    desc: 'Razvijam brze, moderne i skalabilne web sajtove i online prodavnice prilagođene tvojim poslovnim ciljevima.',
   },
   {
     icon: TrendingUp,
     title: 'Optimizacija i SEO Rast',
-    desc: 'Ne pravim samo sajtove – činim ih vidljivim. Optimizujem performanse i SEO strukturu kako bi tvoj brend bio prvi izbor kada kupci pretražuju tvoju delatnost.',
+    desc: 'Optimizujem performanse sajta i SEO kako bi tvoj brend bio bolje vidljiv i rangiran na pretraživačima.',
   },
   {
     icon: Megaphone,
     title: 'Digitalni Marketing & Vođenje profila',
-    desc: 'Preuzimam brigu o tvom digitalnom prisustvu. Od strategije nastupa do vođenja profila, kreiram sadržaj koji gradi poverenje i privlači nove klijente.',
+    desc: 'Kompletno vođenje digitalnog prisustva — od strategije i oglašavanja do kreiranja sadržaja koji privlači nove klijente.',
   },
   {
     icon: BriefcaseBusiness,
     title: 'Konsultacije i Tehnička Podrška 24/7',
-    desc: 'Tvoj IT partner na duge staze. Bilo da ti treba strateško savetovanje za rast poslovanja ili redovno održavanje sistema, tu sam da osiguram da tehnologija radi za tebe.',
+    desc: 'Strateško savetovanje, IT podrška i održavanje sistema. Tu sam kad ti je potrebno brzo i pouzdano rešenje.',
   },
 ];
 
 export function ServicesSection() {
   return (
     <section id="services" className="mx-auto max-w-6xl px-4 py-24 md:py-32">
-      <h2 className="text-3xl font-bold text-white md:text-4xl">Šta nudim</h2>
+      <h2 className="text-3xl font-bold text-white md:text-4xl">Moje usluge</h2>
       <p className="mt-3 max-w-lg text-zinc-400">
-        Profesionalna digitalna rešenja kreirana da ubrzaju tvoj rast i izdvoje te od konkurencije.
+        Profesionalna digitalna rešenja koja pomažu tvom brendu da raste i ističe se u konkurenciji.
       </p>
       <div className="mt-10 grid gap-6 sm:grid-cols-2">
         {services.map((service) => (

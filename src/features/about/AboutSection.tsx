@@ -4,22 +4,22 @@ const highlights = [
   {
     icon: Code2,
     title: 'Web Development & UI/UX',
-    desc: 'Kreiram brze, moderne web site-ove koji izgledaju vrhunski. Fokusiram se na spajanje estetike i funkcionalnosti za najbolje korisničko iskustvo.',
+    desc: 'Kreiram brze, moderne i responsivne web sajtove sa fokusom na odličnom korisničkom iskustvu. Spoj estetike i performansi je moj prioritet.',
   },
   {
     icon: TrendingUp,
     title: 'Digitalni Marketing & Branding',
-    desc: 'Pomažem brendovima da se istaknu u digitalnom svetu kroz strategije koje privlače pažnju i povećavaju prisustvo na mreži.',
+    desc: 'Pomažem brendovima da se istaknu u digitalnom svetu kroz jake vizuelne identitete i efektne marketinške strategije.',
   },
   {
     icon: Clapperboard,
     title: 'Kreativna Produkcija',
-    desc: 'Vizuelno pričam Vaše priče kroz profesionalnu video montažu i obradu fotografija, davajući Vašem brendu jedinstven vizuelni identitet.',
+    desc: 'Bavim se video produkcijom, foto-montažom i dizajnom sadržaja. Pretvaram ideje u vizuelno snažne priče.',
   },
     {
     icon: Zap,
     title: 'Brzina & Preciznost',
-    desc: 'Radim efikasno, poštujući zahteve i rokove. Svaki projekat tretiram kao prioritet, sa fokusom na savršenstvo u svakoj fazi.',
+    desc: 'Radim efikasno i organizovano, sa pažnjom na detalje. Svaki projekat završavam na vreme i na najvišem nivou.',
   },
 ];
 export function AboutSection() {
@@ -27,14 +27,9 @@ export function AboutSection() {
     <section id="about" className="mx-auto max-w-6xl px-4 py-24 md:py-32">
       <div className="lg:grid lg:grid-cols-2 lg:gap-16 xl:gap-20 lg:items-start">
         <div>
-          <h2 className="text-3xl font-bold text-white md:text-4xl">Moja malenkost</h2>
+          <h2 className="text-3xl font-bold text-white md:text-4xl">Nešto o meni</h2>
           <p className="mt-3 text-base leading-relaxed text-zinc-400">
-            Ja ( Veljko Bocić ) sam klinac iz Srbije koji je lud za računarima i tehnologijom
-            generalno. Za sada sam se pronašao u web developmentu, ali ću se u budučnosti okušati
-            i u drugim oblastima. Druge oblasti poput digitalnog marketinga, UI/UX dizajna, video
-            produkcije i photo montaže su mi takođe interesantne, ali konkretno sam trenutno
-            fokusiran na web development. U slobodno vreme volim da istražujem razne alate / jezike,
-            da učim nove stvari i da radim na ličnim projektima.
+            Web developer i UI/UX dizajner iz Srbije. Specijalizovan sam za kreiranje modernih, vizuelno atraktivnih i visoko funkcionalnih digitalnih proizvoda. Pored toga, interesuje me digitalni marketing, brending i kreativna produkcija.
           </p>
         </div>
         <div className="mt-12 lg:mt-0 grid grid-cols-1 sm:grid-cols-2 gap-6">

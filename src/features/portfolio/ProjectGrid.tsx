@@ -4,9 +4,9 @@ import { ProjectCard } from './ProjectCard';
 export function ProjectGrid() {
   return (
     <section id="portfolio" className="mx-auto max-w-6xl px-4 py-24 md:py-32">
-      <h2 className="text-3xl font-bold text-white md:text-4xl">Digitalni otisak mojih radova</h2>
+      <h2 className="text-3xl font-bold text-white md:text-4xl">Moji radovi</h2>
       <p className="mt-3 max-w-lg text-zinc-400">
-        Pažljivo kreirana rešenja koja spajaju funkcionalnost, dizajn i performanse, demonstrirajući moju posvećenost kvalitetu i inovacijama u digitalnom svetu.
+        Pažljivo kreirana digitalna rešenja koja spajaju moderan dizajn, odličnu funkcionalnost i visoke performanse.
       </p>
       <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (

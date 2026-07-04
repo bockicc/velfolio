@@ -1,4 +1,4 @@
-import { ArrowRight, Target, Crown } from 'lucide-react';
+import { ArrowRight, Crown, Rocket } from 'lucide-react';
 
 function StatItem({ value, label }: { value: string; label: string }) {
   return (
@@ -54,12 +54,12 @@ export default function HeroSection() {
               <span className="bg-gradient-to-br from-white via-white to-gold-light bg-clip-text text-transparent">
                 Iskustva
               </span><br />
-              Koja su važna
+              Koja se pamte
             </h1>
 
             {/* Description */}
             <p className="animate-fade-in delay-300 max-w-xl text-lg text-zinc-400 leading-relaxed">
-              Gradim i dizajniram interfejse koji su ne samo vizuelno privlačni, već i funkcionalni. Moja strast je stvaranje digitalnih iskustava koja ostavljaju korisnike bez komentara.
+              Kreiram vizuelno privlačne i visoko funkcionalne digitalne proizvode. Moja misija je da svaki projekat pretvorim u iskustvo koje korisnici ne žele da napuste.
             </p>
 
             {/* CTA Button */}
@@ -81,7 +81,7 @@ export default function HeroSection() {
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20">
-                    <Target className="h-6 w-6 text-white" />
+                    <Rocket className="h-6 w-6 text-white" />
                   </div>
                   <div>
                     <div className="text-3xl font-bold tracking-tight text-white">15+</div>

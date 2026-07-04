@@ -100,24 +100,12 @@ export function ContactForm() {
           <ul className="mt-5 space-y-4">
             {contactDetails.map((item) => (
               <li key={item.label}>
-                {item.href ? (
-                  <a
-                    href={item.href}
-                    className="flex items-center gap-3 text-sm text-zinc-300 transition-colors hover:text-gold-accent"
-                  >
-                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800">
-                      <item.icon className="h-4 w-4 text-gold-accent" />
-                    </span>
-                    {item.label}
-                  </a>
-                ) : (
-                  <span className="flex items-center gap-3 text-sm text-zinc-300">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800">
-                      <item.icon className="h-4 w-4 text-gold-accent" />
-                    </span>
-                    {item.label}
+                <span className="flex items-center gap-3 text-sm text-zinc-300">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800">
+                    <item.icon className="h-4 w-4 text-gold-accent" />
                   </span>
-                )}
+                  {item.label}
+                </span>
               </li>
             ))}
           </ul>

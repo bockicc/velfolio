@@ -12,6 +12,11 @@ export async function submitContactForm(
 ): Promise<{ error?: string }> {
   if (honeypotValue) return {};
 
+  if (!supabase) {
+    console.error('[ContactForm] Cannot submit: supabase client not configured.');
+    return { error: 'Servis za poruke trenutno nije dostupan. Pokušajte kasnije.' };
+  }
+
   // 1. Upis u bazu
   const { error } = await (supabase as any).rpc('submit_contact_message', {
     p_name: payload.name,

@@ -2,7 +2,7 @@ import { Mail, MapPin, Clock } from 'lucide-react';
 import { useContactForm } from './useContactForm';
 
 const contactDetails = [
-  { icon: Mail, label: 'veljkobocic@gmail.com', href: 'mailto:veljkobocic@gmail.com' },
+  { icon: Mail, label: '/' },
   { icon: MapPin, label: 'Kruševac, Srbija' },
   { icon: Clock, label: 'Pon - Ned : 24/7' },
 ];

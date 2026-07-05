@@ -1,5 +1,5 @@
 import { useAnimationControls, motion } from 'framer-motion';
-import { Code2, Film, Palette, TrendingUp, BriefcaseBusiness, PenTool } from 'lucide-react';
+import { Code2, Film, Palette, BriefcaseBusiness, PenTool } from 'lucide-react';
 
 interface Tool {
   name: string;
@@ -31,24 +31,6 @@ const categories: Category[] = [
       { name: 'UI/UX Design' },
       { name: 'Responsive Design' },
       { name: 'Performance Optimization' },
-    ],
-  },
-    {
-    icon: TrendingUp,
-    title: 'Digitalni Marketing',
-    subtext: 'Strategija nastupa i optimizacija konverzije',
-    tools: [
-      { name: 'SEO' },
-      { name: 'SEM' },
-      { name: 'Content Marketing' },
-      { name: 'Social Media Marketing' },
-      { name: 'Social Media Strategy' },
-      { name: 'Analytics' },
-      { name: 'Conversion Rate Optimization' },
-      { name: 'Google Analytics' },
-      { name: 'Copywriting' },
-      { name: 'Email Marketing' },
-      { name: 'Performance Marketing' },
     ],
   },
       {
@@ -244,7 +226,7 @@ export function SkillGrid() {
       >
         <h2 className="text-3xl font-bold text-white md:text-4xl">Oblasti u kojima se ističem</h2>
         <p className="mt-3 max-w-lg text-zinc-400">
-          Kombinujem višegodišnje iskustvo u web developmentu, dizajnu, digitalnom marketingu i kreativnoj produkciji.
+          Kombinujem višegodišnje iskustvo u web developmentu, dizajnu i kreativnoj produkciji.
         </p>
       </motion.div>
 

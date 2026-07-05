@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Globe, Video, Palette, Megaphone, Film, Image } from 'lucide-react';
+import { Globe, Video, Palette, Film, Image } from 'lucide-react';
 import { projects } from './projects.data';
 import { ProjectCard } from './ProjectCard';
 import { VideoModal } from './VideoModal';
@@ -10,7 +10,6 @@ const filters: { id: ProjectCategory; label: string; icon: typeof Globe }[] = [
   { id: 'web', label: 'Web', icon: Globe },
   { id: 'video', label: 'Video', icon: Video },
   { id: 'design', label: 'Design', icon: Palette },
-  { id: 'marketing', label: 'Marketing', icon: Megaphone },
 ];
 
 const videoSubFilters: { id: ProjectSubCategory | 'all'; label: string }[] = [
@@ -32,7 +31,6 @@ const subFilterConfig: Record<ProjectCategory, { id: ProjectSubCategory | 'all';
   web: null,
   video: videoSubFilters,
   design: designSubFilters,
-  marketing: null,
 };
 
 export function ProjectGrid() {
@@ -108,24 +106,7 @@ export function ProjectGrid() {
 
       <div className="mt-6">
         <AnimatePresence mode="popLayout">
-          {activeFilter === 'marketing' ? (
-            <motion.div
-              key={activeFilter}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="flex flex-col items-center justify-center py-16 text-center"
-            >
-              <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800/50 ring-1 ring-white/5">
-                <Megaphone className="h-7 w-7 text-zinc-500" />
-              </div>
-              <p className="text-lg font-semibold text-zinc-300">Coming Soon</p>
-              <p className="mt-1.5 text-sm text-zinc-500">
-                Marketing radovi su u pripremi. Pogledajte Web projekte.
-              </p>
-            </motion.div>
-          ) : filteredProjects.length === 0 ? (
+          {filteredProjects.length === 0 ? (
             <motion.div
               key={`${activeFilter}-${activeSubFilter}`}
               initial={{ opacity: 0, y: 20 }}

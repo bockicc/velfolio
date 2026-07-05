@@ -1,4 +1,4 @@
-export type ProjectCategory = 'web' | 'video' | 'design' | 'marketing';
+export type ProjectCategory = 'web' | 'video' | 'design';
 
 export type VideoSubCategory = 'clipping' | 'short-form' | 'long-form';
 

@@ -1,4 +1,4 @@
-import { LayoutGrid, TrendingUp, Megaphone, BriefcaseBusiness } from 'lucide-react';
+import { LayoutGrid, TrendingUp, BriefcaseBusiness } from 'lucide-react';
 
 const services = [
   {
@@ -10,11 +10,6 @@ const services = [
     icon: TrendingUp,
     title: 'Optimizacija i SEO Rast',
     desc: 'Optimizujem performanse sajta i SEO kako bi tvoj brend bio bolje vidljiv i rangiran na pretraživačima.',
-  },
-  {
-    icon: Megaphone,
-    title: 'Digitalni Marketing & Vođenje profila',
-    desc: 'Kompletno vođenje digitalnog prisustva — od strategije i oglašavanja do kreiranja sadržaja koji privlači nove klijente.',
   },
   {
     icon: BriefcaseBusiness,

@@ -8,8 +8,8 @@ const highlights = [
   },
   {
     icon: TrendingUp,
-    title: 'Digitalni Marketing & Branding',
-    desc: 'Pomažem brendovima da se istaknu u digitalnom svetu kroz jake vizuelne identitete i efektne marketinške strategije.',
+    title: 'Brending & Vizuelni Identitet',
+    desc: 'Pomažem brendovima da se istaknu u digitalnom svetu kroz jake vizuelne identitete i doslednu prezentaciju.',
   },
   {
     icon: Clapperboard,
@@ -29,7 +29,7 @@ export function AboutSection() {
         <div>
           <h2 className="text-3xl font-bold text-white md:text-4xl">Nešto o meni</h2>
           <p className="mt-3 text-base leading-relaxed text-zinc-400">
-            Web developer i UI/UX dizajner iz Srbije. Specijalizovan sam za kreiranje modernih, vizuelno atraktivnih i visoko funkcionalnih digitalnih proizvoda. Pored toga, interesuje me digitalni marketing, brending i kreativna produkcija.
+            Web developer i UI/UX dizajner iz Srbije. Specijalizovan sam za kreiranje modernih, vizuelno atraktivnih i visoko funkcionalnih digitalnih proizvoda. Pored toga, interesuje me brending i kreativna produkcija.
           </p>
         </div>
         <div className="mt-12 lg:mt-0 grid grid-cols-1 sm:grid-cols-2 gap-6">

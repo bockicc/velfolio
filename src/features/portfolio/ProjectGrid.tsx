@@ -72,7 +72,7 @@ export function ProjectGrid() {
       </div>
 
       <div className="mt-10">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="popLayout">
           {showComingSoon ? (
             <ComingSoon key={activeFilter} category={filters.find((f) => f.id === activeFilter)?.label ?? ''} />
           ) : (

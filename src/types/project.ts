@@ -4,7 +4,9 @@ export type VideoSubCategory = 'clipping' | 'short-form' | 'long-form';
 
 export type DesignSubCategory = 'branding' | 'social-media' | 'layout-type' | 'photo-editing';
 
-export type ProjectSubCategory = VideoSubCategory | DesignSubCategory;
+export type WebSubCategory = 'vanilla-stack' | 'modern-stack';
+
+export type ProjectSubCategory = VideoSubCategory | DesignSubCategory | WebSubCategory;
 
 export interface VideoLink {
   platform: string;

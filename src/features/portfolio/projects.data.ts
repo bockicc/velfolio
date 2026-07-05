@@ -8,6 +8,7 @@ export const projects: Project[] = [
     description: 'Interaktivna platforma za čuvanje sećanja na jednog jedinog Djordja Balaševića, koja je razvijena sa fokusom na emotivno korisničko iskustvo.',
     image: 'poc-projekti/Projekat-1.png',
     category: 'web',
+    subCategory: 'vanilla-stack',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'UI/UX Design', 'Responsive Design', 'Accessibility', 'Performance Optimization'],
     liveUrl: 'https://bockicc.github.io/panonskimornar-v3/',
     caseStudy:
@@ -19,6 +20,7 @@ export const projects: Project[] = [
     description: 'Rezervacioni sistem visokih performansi koji omogućava jednostavno zakazivanje termina za igrače.',
     image: 'poc-projekti/Projekat-2.png',
     category: 'web',
+    subCategory: 'vanilla-stack',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'UI/UX Design', 'Responsive Design', 'Accessibility', 'Performance Optimization'],
     liveUrl: 'https://bockicc.github.io/padelplatz-v3.6/',
     caseStudy:
@@ -30,6 +32,7 @@ export const projects: Project[] = [
     description: 'Prezentacioni sajt sa fokusom na konverziju, dizajniran da istakne kvalitet i pouzdanost gradnje.',
     image: 'poc-projekti/Projekat-3.png',
     category: 'web',
+    subCategory: 'vanilla-stack',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'UI/UX Design', 'Responsive Design', 'Accessibility', 'Performance Optimization'],
     liveUrl: 'https://bockicc.github.io/oring024-v3/',
     caseStudy:
@@ -41,6 +44,7 @@ export const projects: Project[] = [
     description: 'Moderan portfolio sajt koji odražava estetiku i luksuz salona lepote kroz minimalistički dizajn.',
     image: 'poc-projekti/Projekat-4.png',
     category: 'web',
+    subCategory: 'vanilla-stack',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'UI/UX Design', 'Responsive Design', 'Accessibility', 'Performance Optimization'],
     liveUrl: 'https://bockicc.github.io/beauty-factory-v3/',
     caseStudy:
@@ -52,6 +56,7 @@ export const projects: Project[] = [
     description: 'Tehnički prezentacioni sajt optimizovan za prikazivanje usluga i stručnosti u domenu elektroinstalacija.',
     image: 'poc-projekti/Projekat-5.png',
     category: 'web',
+    subCategory: 'vanilla-stack',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'UI/UX Design', 'Responsive Design', 'Accessibility', 'Performance Optimization'],
     liveUrl: 'https://bockicc.github.io/elektrotehna92-v3/',
     caseStudy:
@@ -63,6 +68,7 @@ export const projects: Project[] = [
     description: 'Vizuelno dopadljiv sajt za salon za negu kućnih ljubimaca, optimizovan za brzo pronalaženje informacija.',
     image: 'poc-projekti/Projekat-6.png',
     category: 'web',
+    subCategory: 'vanilla-stack',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'UI/UX Design', 'Responsive Design', 'Accessibility', 'Performance Optimization'],
     liveUrl: 'https://bockicc.github.io/lovely-pets-groomer-v3/',
     caseStudy:
@@ -74,6 +80,7 @@ export const projects: Project[] = [
     description: 'Booking platforma za apartmane sa intuitivnim interfejsom za pregled smeštajnih jedinica.',
     image: 'poc-projekti/Projekat-7.png',
     category: 'web',
+    subCategory: 'modern-stack',
     tags: ['React', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'PHP', 'UI/UX Design', 'Responsive Design', 'Accessibility', 'Performance Optimization'],
     liveUrl: 'https://bockicc.github.io/elena-apartmani/',
     caseStudy:
@@ -85,6 +92,7 @@ export const projects: Project[] = [
     description: 'Katalog proizvoda sa naprednim filterima za lakši odabir tendi i pergola po meri.',
     image: 'poc-projekti/Projekat-8.png',
     category: 'web',
+    subCategory: 'modern-stack',
     tags: ['React', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'PHP', 'UI/UX Design', 'Responsive Design', 'Accessibility', 'Performance Optimization'],
     liveUrl: 'https://bockicc.github.io/musola-tende/',
     caseStudy:
@@ -96,6 +104,7 @@ export const projects: Project[] = [
     description: 'Korporativni web sajt koji jasno prikazuje industrijska rešenja i tehničke specifikacije mehanizacije.',
     image: 'poc-projekti/Projekat-9.png',
     category: 'web',
+    subCategory: 'modern-stack',
     tags: ['React', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'PHP', 'UI/UX Design', 'Responsive Design', 'Accessibility', 'Performance Optimization'],
     liveUrl: 'https://bockicc.github.io/agro-lines/',
     caseStudy:
@@ -107,6 +116,7 @@ export const projects: Project[] = [
     description: 'Razvoj korporativnog web sajta za Vasic Rolet sa fokusom na jasno predstavljanje industrijskih rešenja.',
     image: 'poc-projekti/Projekat-10.png',
     category: 'web',
+    subCategory: 'modern-stack',
     tags: ['React', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'PHP', 'UI/UX Design', 'Responsive Design', 'Accessibility', 'Performance Optimization'],
     liveUrl: 'https://bockicc.github.io/vasic-rolet/',
     caseStudy:

@@ -12,6 +12,12 @@ const filters: { id: ProjectCategory; label: string; icon: typeof Globe }[] = [
   { id: 'design', label: 'Design', icon: Palette },
 ];
 
+const webSubFilters: { id: ProjectSubCategory | 'all'; label: string }[] = [
+  { id: 'all', label: 'Sve' },
+  { id: 'vanilla-stack', label: 'Vanilla Stack' },
+  { id: 'modern-stack', label: 'Modern Stack' },
+];
+
 const videoSubFilters: { id: ProjectSubCategory | 'all'; label: string }[] = [
   { id: 'all', label: 'Sve' },
   { id: 'clipping', label: 'Clipping' },
@@ -28,7 +34,7 @@ const designSubFilters: { id: ProjectSubCategory | 'all'; label: string }[] = [
 ];
 
 const subFilterConfig: Record<ProjectCategory, { id: ProjectSubCategory | 'all'; label: string }[] | null> = {
-  web: null,
+  web: webSubFilters,
   video: videoSubFilters,
   design: designSubFilters,
 };

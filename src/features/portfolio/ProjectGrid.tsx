@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import { motion, AnimatePresence, useAnimationControls } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Globe, Video, Palette, Megaphone, Film } from 'lucide-react';
 import { projects } from './projects.data';
 import { ProjectCard } from './ProjectCard';
@@ -13,86 +13,12 @@ const filters: { id: ProjectCategory; label: string; icon: typeof Globe }[] = [
   { id: 'marketing', label: 'Marketing', icon: Megaphone },
 ];
 
-const videoSubFilters: { id: VideoSubCategory | 'all'; label: string; icon: typeof Film }[] = [
-  { id: 'all', label: 'Sve', icon: Film },
-  { id: 'clipping', label: 'Clipping', icon: Film },
-  { id: 'short-form', label: 'Short-form', icon: Film },
-  { id: 'long-form', label: 'Long-form', icon: Film },
+const videoSubFilters: { id: VideoSubCategory | 'all'; label: string }[] = [
+  { id: 'all', label: 'Sve' },
+  { id: 'clipping', label: 'Clipping' },
+  { id: 'short-form', label: 'Short-form' },
+  { id: 'long-form', label: 'Long-form' },
 ];
-
-function ChainPadlock() {
-  return (
-    <svg className="h-20 w-20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="35" y="45" width="30" height="28" rx="4" className="stroke-zinc-600" strokeWidth="2" fill="rgba(39,39,42,0.6)" />
-      <path d="M38 45V37a12 12 0 0 1 24 0v8" className="stroke-zinc-600" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="50" cy="57" r="3" className="fill-zinc-500" />
-      <rect x="48" y="57" width="4" height="8" rx="1" className="fill-zinc-500" />
-      <path d="M68 52c-4-3-10-3-14 0" className="stroke-zinc-600" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="72" cy="50" r="5" className="stroke-zinc-600" strokeWidth="2" fill="rgba(39,39,42,0.6)" />
-      <circle cx="72" cy="50" r="2" className="fill-zinc-500" />
-    </svg>
-  );
-}
-
-function LockedVideoCard({ label }: { label: string }) {
-  const controls = useAnimationControls();
-  const handleShake = useCallback(() => {
-    controls.start('shake').then(() => controls.set('idle'));
-  }, [controls]);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="group relative h-full cursor-not-allowed rounded-2xl border border-white/5 bg-zinc-900/50 p-8 transition-all duration-500">
-        <div className="pointer-events-none select-none" style={{ opacity: 0.6 }}>
-          <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-zinc-800">
-            <Film className="h-7 w-7 text-gold-accent/50" />
-          </div>
-          <h3 className="mt-5 text-lg font-semibold text-white">{label}</h3>
-          <p className="mt-1 text-sm text-zinc-500">Video sadržaj u pripremi</p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            <span className="rounded-md border border-white/5 bg-zinc-800/50 px-3 py-1 text-xs font-medium text-zinc-300">Montaža</span>
-            <span className="rounded-md border border-white/5 bg-zinc-800/50 px-3 py-1 text-xs font-medium text-zinc-300">Produkcija</span>
-            <span className="rounded-md border border-white/5 bg-zinc-800/50 px-3 py-1 text-xs font-medium text-zinc-300">Post-produkcija</span>
-          </div>
-        </div>
-
-        <div
-          className="pointer-events-none absolute inset-0 rounded-2xl"
-          style={{
-            backdropFilter: 'blur(5px)',
-            WebkitBackdropFilter: 'blur(5px)',
-            maskImage: 'linear-gradient(to bottom, transparent 0%, black 60%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 60%)',
-          }}
-        />
-
-        <motion.div
-          className="absolute inset-0 z-10 flex cursor-not-allowed flex-col items-center justify-center"
-          animate={controls}
-          variants={{
-            idle: { x: 0 },
-            shake: {
-              x: [0, -5, 5, -5, 5, -3, 3, 0],
-              transition: { duration: 0.5 },
-            },
-          }}
-          onMouseEnter={handleShake}
-          onClick={handleShake}
-        >
-          <ChainPadlock />
-          <span className="mt-3 select-none text-xs font-medium tracking-wider text-zinc-600 uppercase">
-            Uskoro dostupno
-          </span>
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-}
 
 function CategoryComingSoon({ category }: { category: string }) {
   return (
@@ -103,7 +29,7 @@ function CategoryComingSoon({ category }: { category: string }) {
       transition={{ duration: 0.4, ease: 'easeOut' }}
       className="col-span-full flex flex-col items-center justify-center py-12 text-center"
     >
-      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800/50 ring-1 ring-white/5 mb-5">
+      <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800/50 ring-1 ring-white/5">
         <Film className="h-7 w-7 text-zinc-500" />
       </div>
       <p className="text-lg font-semibold text-zinc-300">Coming Soon</p>
@@ -193,18 +119,16 @@ export function ProjectGrid() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className="flex flex-col items-center justify-center py-16 text-center"
             >
-              {activeSubFilter === 'all'
-                ? videoSubFilters
-                    .filter((f) => f.id !== 'all')
-                    .map((f) => <LockedVideoCard key={f.id} label={f.label} />)
-                : (
-                  <LockedVideoCard
-                    label={videoSubFilters.find((f) => f.id === activeSubFilter)?.label ?? ''}
-                  />
-                )}
+              <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800/50 ring-1 ring-white/5">
+                <Film className="h-7 w-7 text-zinc-500" />
+              </div>
+              <p className="text-lg font-semibold text-zinc-300">Video sadržaji u pripremi</p>
+              <p className="mt-1.5 text-sm text-zinc-500">
+                Uskoro stižu novi radovi.
+              </p>
             </motion.div>
           ) : (
             <motion.div

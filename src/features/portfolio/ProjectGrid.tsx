@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Globe, Video, Palette, Megaphone, Film } from 'lucide-react';
+import { Globe, Video, Palette, Megaphone, Film, Image } from 'lucide-react';
 import { projects } from './projects.data';
 import { ProjectCard } from './ProjectCard';
 import { VideoModal } from './VideoModal';
-import type { ProjectCategory, VideoSubCategory, Project } from '../../types/project';
+import type { ProjectCategory, ProjectSubCategory, Project } from '../../types/project';
 
 const filters: { id: ProjectCategory; label: string; icon: typeof Globe }[] = [
   { id: 'web', label: 'Web', icon: Globe },
@@ -13,41 +13,38 @@ const filters: { id: ProjectCategory; label: string; icon: typeof Globe }[] = [
   { id: 'marketing', label: 'Marketing', icon: Megaphone },
 ];
 
-const videoSubFilters: { id: VideoSubCategory | 'all'; label: string }[] = [
+const videoSubFilters: { id: ProjectSubCategory | 'all'; label: string }[] = [
   { id: 'all', label: 'Sve' },
   { id: 'clipping', label: 'Clipping' },
   { id: 'short-form', label: 'Short-form' },
   { id: 'long-form', label: 'Long-form' },
 ];
 
-function CategoryComingSoon({ category }: { category: string }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="col-span-full flex flex-col items-center justify-center py-12 text-center"
-    >
-      <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800/50 ring-1 ring-white/5">
-        <Film className="h-7 w-7 text-zinc-500" />
-      </div>
-      <p className="text-lg font-semibold text-zinc-300">Coming Soon</p>
-      <p className="mt-1.5 text-sm text-zinc-500">
-        {category} radovi su u pripremi. Pogledaj Web projekte.
-      </p>
-    </motion.div>
-  );
-}
+const designSubFilters: { id: ProjectSubCategory | 'all'; label: string }[] = [
+  { id: 'all', label: 'Sve' },
+  { id: 'branding', label: 'Branding' },
+  { id: 'social-media', label: 'Social Media' },
+  { id: 'layout-type', label: 'Layout & Type' },
+  { id: 'photo-editing', label: 'Photo Editing' },
+];
+
+const subFilterConfig: Record<ProjectCategory, { id: ProjectSubCategory | 'all'; label: string }[] | null> = {
+  web: null,
+  video: videoSubFilters,
+  design: designSubFilters,
+  marketing: null,
+};
 
 export function ProjectGrid() {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>('web');
-  const [activeSubFilter, setActiveSubFilter] = useState<VideoSubCategory | 'all'>('all');
+  const [activeSubFilter, setActiveSubFilter] = useState<ProjectSubCategory | 'all'>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const currentSubFilters = subFilterConfig[activeFilter];
 
   const filteredProjects = projects.filter((p) => {
     if (p.category !== activeFilter) return false;
-    if (activeFilter === 'video' && activeSubFilter !== 'all') {
+    if (currentSubFilters && activeSubFilter !== 'all') {
       return p.subCategory === activeSubFilter;
     }
     return true;
@@ -91,9 +88,9 @@ export function ProjectGrid() {
         ))}
       </div>
 
-      {activeFilter === 'video' && (
+      {currentSubFilters && (
         <div className="mt-4 flex flex-wrap gap-2">
-          {videoSubFilters.map(({ id, label }) => (
+          {currentSubFilters.map(({ id, label }) => (
             <button
               key={id}
               onClick={() => setActiveSubFilter(id)}
@@ -111,9 +108,24 @@ export function ProjectGrid() {
 
       <div className="mt-6">
         <AnimatePresence mode="popLayout">
-          {activeFilter === 'design' || activeFilter === 'marketing' ? (
-            <CategoryComingSoon key={activeFilter} category={filters.find((f) => f.id === activeFilter)?.label ?? ''} />
-          ) : activeFilter === 'video' && filteredProjects.length === 0 ? (
+          {activeFilter === 'marketing' ? (
+            <motion.div
+              key={activeFilter}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className="flex flex-col items-center justify-center py-16 text-center"
+            >
+              <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800/50 ring-1 ring-white/5">
+                <Megaphone className="h-7 w-7 text-zinc-500" />
+              </div>
+              <p className="text-lg font-semibold text-zinc-300">Coming Soon</p>
+              <p className="mt-1.5 text-sm text-zinc-500">
+                Marketing radovi su u pripremi. Pogledajte Web projekte.
+              </p>
+            </motion.div>
+          ) : filteredProjects.length === 0 ? (
             <motion.div
               key={`${activeFilter}-${activeSubFilter}`}
               initial={{ opacity: 0, y: 20 }}
@@ -123,9 +135,13 @@ export function ProjectGrid() {
               className="flex flex-col items-center justify-center py-16 text-center"
             >
               <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800/50 ring-1 ring-white/5">
-                <Film className="h-7 w-7 text-zinc-500" />
+                {activeFilter === 'video' ? (
+                  <Film className="h-7 w-7 text-zinc-500" />
+                ) : (
+                  <Image className="h-7 w-7 text-zinc-500" />
+                )}
               </div>
-              <p className="text-lg font-semibold text-zinc-300">Video sadržaji u pripremi</p>
+              <p className="text-lg font-semibold text-zinc-300">Sadržaji u pripremi</p>
               <p className="mt-1.5 text-sm text-zinc-500">
                 Uskoro stižu novi radovi.
               </p>

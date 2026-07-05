@@ -2,6 +2,10 @@ export type ProjectCategory = 'web' | 'video' | 'design' | 'marketing';
 
 export type VideoSubCategory = 'clipping' | 'short-form' | 'long-form';
 
+export type DesignSubCategory = 'branding' | 'social-media' | 'layout-type' | 'photo-editing';
+
+export type ProjectSubCategory = VideoSubCategory | DesignSubCategory;
+
 export interface VideoLink {
   platform: string;
   url: string;
@@ -19,6 +23,6 @@ export interface Project {
   repoUrl?: string;
   caseStudy: string;
   videoUrl?: string;
-  subCategory?: VideoSubCategory;
+  subCategory?: ProjectSubCategory;
   videoLinks?: VideoLink[];
 }

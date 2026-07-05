@@ -69,21 +69,51 @@ const categories: Category[] = [
     icon: PenTool,
     title: 'Kreiranje sadržaja',
     subtext: 'Pisanje teksta, copywriting i kreiranje digitalnog sadržaja koji privlači i konvertuje.',
-    tools: [],
+    tools: [
+      { name: 'Copywriting' },
+      { name: 'Content Strategy' },
+      { name: 'SEO Writing' },
+      { name: 'Social Media Copy' },
+      { name: 'Blog Post Creation' },
+      { name: 'Brand Storytelling' },
+    ],
     locked: true,
   },
   {
     icon: Film,
     title: 'Video Produkcija',
     subtext: 'Snimanje, montaža i produkcija video sadržaja visokog kvaliteta.',
-    tools: [],
+    tools: [
+      { name: 'Video Editing' },
+      { name: 'DaVinci Resolve' },
+      { name: 'Adobe Premiere Pro' },
+      { name: 'Adobe After Effects' },
+      { name: 'Color Grading' },
+      { name: 'Sound Design' },
+      { name: 'Motion Graphics' },
+      { name: 'Long Form Video' },
+      { name: 'Short Form Video' },
+    ],
     locked: true,
   },
   {
     icon: Palette,
     title: 'Digitalni Dizajn',
     subtext: 'Grafički dizajn, brending i kreiranje vizuelnog identiteta.',
-    tools: [],
+    tools: [
+      { name: 'Adobe Photoshop' },
+      { name: 'Adobe Lightroom' },
+      { name: 'Adobe Illustrator' },
+      { name: 'Copywriting' },
+      { name: 'Copywriting' },
+      { name: 'UI/UX Design' },
+      { name: 'Logo & Identity' },
+      { name: 'Typography' },
+      { name: 'Prototyping' },
+      { name: 'Visual Assets' },
+      { name: 'Photo Editing' },
+      { name: 'Responsive Layouts' },
+    ],
     locked: true,
   },
 ];
@@ -116,32 +146,43 @@ function LockedCategoryCard({ category, index }: { category: Category; index: nu
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.15 }}
     >
-      <div className="group relative h-full cursor-not-allowed rounded-2xl border border-white/5 bg-zinc-900/50 p-8 opacity-60 transition-all duration-500">
-        <div className="relative">
+      <div className="group relative h-full cursor-not-allowed rounded-2xl border border-white/5 bg-zinc-900/50 p-8 transition-all duration-500">
+        <div className="pointer-events-none select-none" style={{ filter: 'blur(5px)', opacity: 0.6 }}>
           <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-zinc-800">
             <category.icon className="h-7 w-7 text-gold-accent/50" />
           </div>
           <h3 className="mt-5 text-lg font-semibold text-white">{category.title}</h3>
           <p className="mt-1 text-sm text-zinc-500">{category.subtext}</p>
-          <motion.div
-            className="mt-6 flex cursor-not-allowed flex-col items-center justify-center py-4"
-            animate={controls}
-            variants={{
-              idle: { x: 0 },
-              shake: {
-                x: [0, -5, 5, -5, 5, -3, 3, 0],
-                transition: { duration: 0.5 },
-              },
-            }}
-            onMouseEnter={handleShake}
-            onClick={handleShake}
-          >
-            <ChainPadlock />
-            <span className="mt-3 select-none text-xs font-medium tracking-wider text-zinc-600 uppercase">
-              Uskoro dostupno
-            </span>
-          </motion.div>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {category.tools.map((tool) => (
+              <span
+                key={tool.name}
+                className="rounded-md border border-white/5 bg-zinc-800/50 px-3 py-1 text-xs font-medium text-zinc-300"
+              >
+                {tool.name}
+              </span>
+            ))}
+          </div>
         </div>
+
+        <motion.div
+          className="absolute inset-0 z-10 flex cursor-not-allowed flex-col items-center justify-center"
+          animate={controls}
+          variants={{
+            idle: { x: 0 },
+            shake: {
+              x: [0, -5, 5, -5, 5, -3, 3, 0],
+              transition: { duration: 0.5 },
+            },
+          }}
+          onMouseEnter={handleShake}
+          onClick={handleShake}
+        >
+          <ChainPadlock />
+          <span className="mt-3 select-none text-xs font-medium tracking-wider text-zinc-600 uppercase">
+            Uskoro dostupno
+          </span>
+        </motion.div>
       </div>
     </motion.div>
   );

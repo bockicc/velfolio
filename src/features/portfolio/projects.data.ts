@@ -101,24 +101,13 @@ export const projects: Project[] = [
       'Vizuelizacija podataka u realnom vremenu zahtevala je pažljivo upravljanje stanjem i efikasne strategije za ponovno renderovanje.',
   },
   {
-    id: 'project-10',
-    title: 'Majstor Drvo - Stolarska radionica',
-    description: 'Prezentacioni sajt fokusiran na prikazivanje unikatnog nameštaja po meri kroz kvalitetnu galeriju radova.',
+    id: 'Projekat-10',
+    title: 'Vasic Rolet - Proizvodnja i distribucija roleta',
+    description: 'Razvoj korporativnog web sajta za Vasic Rolet sa fokusom na jasno predstavljanje industrijskih rešenja.',
     image: 'poc-projekti/Projekat-10.png',
     category: 'web',
     tags: ['React', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'PHP', 'UI/UX Design', 'Responsive Design', 'Accessibility', 'Performance Optimization'],
-    liveUrl: 'https://bockicc.github.io/majstor-drvo/',
-    caseStudy:
-      'Vizuelizacija podataka u realnom vremenu zahtevala je pažljivo upravljanje stanjem i efikasne strategije za ponovno renderovanje.',
-  },
-  {
-    id: 'project-11',
-    title: 'Art Gallery - Online galerija umetničkih dela',
-    description: 'Minimalistička digitalna galerija umetničkih dela dizajnirana da stavi fokus na samu umetnost.',
-    image: 'poc-projekti/Projekat-11.png',
-    category: 'web',
-    tags: ['React', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'PHP', 'UI/UX Design', 'Responsive Design', 'Accessibility', 'Performance Optimization'],
-    liveUrl: 'https://bockicc.github.io/art-gallery/',
+    liveUrl: 'https://bockicc.github.io/vasic-rolet/',
     caseStudy:
       'Vizuelizacija podataka u realnom vremenu zahtevala je pažljivo upravljanje stanjem i efikasne strategije za ponovno renderovanje.',
   },

@@ -66,12 +66,12 @@ export function ProjectGrid() {
         Pažljivo kreirana digitalna rešenja koja spajaju moderan dizajn, odličnu funkcionalnost i visoke performanse.
       </p>
 
-      <div className="mt-10 grid grid-cols-2 gap-2 rounded-2xl border border-white/[0.06] bg-zinc-900/50 p-1.5 sm:flex sm:flex-wrap sm:w-fit">
+      <div className="mt-10 flex gap-2 overflow-x-auto rounded-2xl border border-white/[0.06] bg-zinc-900/50 p-1.5 sm:flex-wrap sm:w-fit scrollbar-hide">
         {filters.map(({ id, label, icon: Icon }) => (
           <button
             key={id}
             onClick={() => handleFilterChange(id)}
-            className={`relative flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors sm:justify-start ${
+            className={`relative flex flex-shrink-0 items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors sm:justify-start ${
               activeFilter === id
                 ? 'text-white'
                 : 'text-zinc-500 hover:text-zinc-300'
@@ -93,12 +93,12 @@ export function ProjectGrid() {
       </div>
 
       {currentSubFilters && (
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-4 flex gap-2 overflow-x-auto sm:flex-wrap scrollbar-hide">
           {currentSubFilters.map(({ id, label }) => (
             <button
               key={id}
               onClick={() => setActiveSubFilter(id)}
-              className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+              className={`flex-shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
                 activeSubFilter === id
                   ? 'bg-gold/20 text-gold-accent ring-1 ring-gold/30'
                   : 'bg-zinc-800/50 text-zinc-500 hover:text-zinc-300'

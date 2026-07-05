@@ -1,6 +1,83 @@
 import type { Project } from '../../types/project';
 
 export const projects: Project[] = [
+  // ── Video: Clipping ──────────────────────────────────────
+  {
+    id: 'video-clip-1',
+    title: 'Twitch Highlights Vol.1 — 2024 Compilation',
+    description: 'Najbolji momenti sa Twitch streamova — brza montaža sa custom overlay-ima i tranzicijama.',
+    image: 'poc-projekti/Projekat-1.png',
+    category: 'video',
+    subCategory: 'clipping',
+    tags: ['Twitch', 'Kick', 'Rumble', 'Highlights', 'Montaža'],
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    videoLinks: [
+      { platform: 'Twitch', url: 'https://twitch.tv/example', label: 'Twitch kanal' },
+      { platform: 'Kick', url: 'https://kick.com/example', label: 'Kick kanal' },
+    ],
+    caseStudy: 'Montaža najboljih trenutaka sa nedeljnih streamova, sinhronizacija sa muzikom i dodavanje custom grafike.',
+  },
+  {
+    id: 'video-clip-2',
+    title: 'Rumble Exkluziv — Borilački Highlight Reel',
+    description: 'Ekskluzivni klipovi sa Rumble platforme — akcioni momenti i analiza borbi.',
+    image: 'poc-projekti/Projekat-2.png',
+    category: 'video',
+    subCategory: 'clipping',
+    tags: ['Rumble', 'Highlight Reel', 'Sports', 'Montaža'],
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    videoLinks: [
+      { platform: 'Rumble', url: 'https://rumble.com/example', label: 'Rumble kanal' },
+    ],
+    caseStudy: 'Selekcija najboljih momenata i kreiranje napetog narativa kroz brzu montažu.',
+  },
+  // ── Video: Short-form ────────────────────────────────────
+  {
+    id: 'video-short-1',
+    title: 'TikTok Trendovi — Serija Kratkog Sadržaja',
+    description: 'Serija TikTok i Reels videa sa viralnom muzikom, efektima i brzim rezovima.',
+    image: 'poc-projekti/Projekat-3.png',
+    category: 'video',
+    subCategory: 'short-form',
+    tags: ['TikTok', 'Instagram Reels', 'YouTube Shorts', 'Trendovi', 'Viral'],
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    videoLinks: [
+      { platform: 'TikTok', url: 'https://tiktok.com/@example', label: 'TikTok profil' },
+      { platform: 'Instagram', url: 'https://instagram.com/example', label: 'Instagram Reels' },
+    ],
+    caseStudy: 'Kreiranje kratkog i dinamičnog sadržaja prilagođenog svakoj platformi — vertikalni format, brzi hook-ovi i optimizacija za algoritam.',
+  },
+  // ── Video: Long-form ─────────────────────────────────────
+  {
+    id: 'video-long-1',
+    title: 'Dokumentarac — Kraljevo Kroz Vekove',
+    description: 'Celovečernji dokumentarni film o istoriji Kraljeva sa naracijom, arhivskim snimcima i originalnom muzikom.',
+    image: 'poc-projekti/Projekat-4.png',
+    category: 'video',
+    subCategory: 'long-form',
+    tags: ['YouTube', 'Dokumentarac', 'Montaža', 'Produkcija', 'Naracija'],
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    videoLinks: [
+      { platform: 'YouTube', url: 'https://youtube.com/watch?v=example', label: 'Pogledaj na YouTube' },
+    ],
+    caseStudy: 'Potpuna produkcija — od istraživanja i pisanja scenarija, preko snimanja i montaže, do kolor korekcije i zvuka.',
+  },
+  {
+    id: 'video-long-2',
+    title: 'Full Edit — Gaming Montage "Epic Comeback"',
+    description: 'Full-length gaming edit sa sinhronizovanom muzikom, SFX-ovima i cinematics sekvencama.',
+    image: 'poc-projekti/Projekat-5.png',
+    category: 'video',
+    subCategory: 'long-form',
+    tags: ['YouTube', 'Gaming', 'Montaža', 'SFX', 'Cinematics'],
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    videoLinks: [
+      { platform: 'YouTube', url: 'https://youtube.com/watch?v=example', label: 'Pogledaj na YouTube' },
+    ],
+    caseStudy: 'Slojevita montaža sa custom SFX-ovima, color gradingom i dinamičnim pacingom za maksimalan utisak.',
+  },
+
+  // ── Web projects ─────────────────────────────────────────
   {
     id: 'project-1',
     title: 'Balačević - Digitalni Spomenar',

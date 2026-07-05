@@ -5,9 +5,17 @@ interface ModalProps {
   open: boolean;
   onClose: () => void;
   children: ReactNode;
+  size?: 'md' | 'lg' | 'xl' | 'full';
 }
 
-export function Modal({ open, onClose, children }: ModalProps) {
+const sizeClasses: Record<string, string> = {
+  md: 'max-w-2xl',
+  lg: 'max-w-4xl',
+  xl: 'max-w-6xl',
+  full: 'mx-4 max-w-full',
+};
+
+export function Modal({ open, onClose, children, size = 'md' }: ModalProps) {
   return (
     <AnimatePresence>
       {open && (
@@ -23,7 +31,7 @@ export function Modal({ open, onClose, children }: ModalProps) {
             onClick={onClose}
           />
           <motion.div
-            className="relative z-10 max-w-2xl w-full rounded-2xl bg-zinc-900 p-6 shadow-2xl"
+            className={`relative z-10 w-full rounded-2xl bg-zinc-900 p-6 shadow-2xl ${sizeClasses[size]}`}
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}

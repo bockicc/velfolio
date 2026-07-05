@@ -3,13 +3,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Globe, Video, Palette, Megaphone, Lock } from 'lucide-react';
 import { projects } from './projects.data';
 import { ProjectCard } from './ProjectCard';
-import type { ProjectCategory } from '../../types/project';
+import { VideoModal } from './VideoModal';
+import type { ProjectCategory, VideoSubCategory, Project } from '../../types/project';
 
 const filters: { id: ProjectCategory; label: string; icon: typeof Globe }[] = [
   { id: 'web', label: 'Web', icon: Globe },
   { id: 'video', label: 'Video', icon: Video },
   { id: 'design', label: 'Design', icon: Palette },
   { id: 'marketing', label: 'Marketing', icon: Megaphone },
+];
+
+const videoSubFilters: { id: VideoSubCategory | 'all'; label: string }[] = [
+  { id: 'all', label: 'Sve' },
+  { id: 'clipping', label: 'Clipping' },
+  { id: 'short-form', label: 'Short-form' },
+  { id: 'long-form', label: 'Long-form' },
 ];
 
 function ComingSoon({ category }: { category: string }) {
@@ -34,9 +42,23 @@ function ComingSoon({ category }: { category: string }) {
 
 export function ProjectGrid() {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>('web');
+  const [activeSubFilter, setActiveSubFilter] = useState<VideoSubCategory | 'all'>('all');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const filteredProjects = projects.filter((p) => p.category === activeFilter);
-  const showComingSoon = activeFilter !== 'web';
+  const filteredProjects = projects.filter((p) => {
+    if (p.category !== activeFilter) return false;
+    if (activeFilter === 'video' && activeSubFilter !== 'all') {
+      return p.subCategory === activeSubFilter;
+    }
+    return true;
+  });
+
+  const showComingSoon = activeFilter !== 'web' && activeFilter !== 'video';
+
+  const handleFilterChange = (id: ProjectCategory) => {
+    setActiveFilter(id);
+    setActiveSubFilter('all');
+  };
 
   return (
     <section id="portfolio" className="mx-auto max-w-6xl px-4 py-24 md:py-32">
@@ -49,7 +71,7 @@ export function ProjectGrid() {
         {filters.map(({ id, label, icon: Icon }) => (
           <button
             key={id}
-            onClick={() => setActiveFilter(id)}
+            onClick={() => handleFilterChange(id)}
             className={`relative flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors sm:justify-start ${
               activeFilter === id
                 ? 'text-white'
@@ -71,26 +93,60 @@ export function ProjectGrid() {
         ))}
       </div>
 
+      {activeFilter === 'video' && (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {videoSubFilters.map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => setActiveSubFilter(id)}
+              className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                activeSubFilter === id
+                  ? 'bg-gold/20 text-gold-accent ring-1 ring-gold/30'
+                  : 'bg-zinc-800/50 text-zinc-500 hover:text-zinc-300'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
+
       <div className="mt-6">
         <AnimatePresence mode="popLayout">
           {showComingSoon ? (
             <ComingSoon key={activeFilter} category={filters.find((f) => f.id === activeFilter)?.label ?? ''} />
           ) : (
             <motion.div
-              key="projects"
+              key={`${activeFilter}-${activeSubFilter}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
               className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
             >
-              {filteredProjects.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} />
-              ))}
+              {filteredProjects.length > 0 ? (
+                filteredProjects.map((project, index) => (
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    index={index}
+                    onSelect={setSelectedProject}
+                  />
+                ))
+              ) : (
+                <p className="col-span-full text-center text-sm text-zinc-500">
+                  Nema projekata u ovoj kategoriji.
+                </p>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+
+      <VideoModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
 
       <div className="relative left-1/2 -mx-[50vw] mt-24 w-screen overflow-hidden border-y border-zinc-800">
         <div

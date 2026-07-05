@@ -19,7 +19,7 @@ function ComingSoon({ category }: { category: string }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="col-span-full flex flex-col items-center justify-center py-20 text-center"
+      className="col-span-full flex flex-col items-center justify-center py-12 text-center"
     >
       <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800/50 ring-1 ring-white/5 mb-5">
         <Lock className="h-7 w-7 text-zinc-500" />
@@ -71,7 +71,7 @@ export function ProjectGrid() {
         ))}
       </div>
 
-      <div className="mt-10">
+      <div className="mt-6">
         <AnimatePresence mode="popLayout">
           {showComingSoon ? (
             <ComingSoon key={activeFilter} category={filters.find((f) => f.id === activeFilter)?.label ?? ''} />

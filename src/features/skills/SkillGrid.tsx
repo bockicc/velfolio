@@ -147,7 +147,7 @@ function LockedCategoryCard({ category, index }: { category: Category; index: nu
       transition={{ duration: 0.6, delay: index * 0.15 }}
     >
       <div className="group relative h-full cursor-not-allowed rounded-2xl border border-white/5 bg-zinc-900/50 p-8 transition-all duration-500">
-        <div className="pointer-events-none select-none" style={{ filter: 'blur(5px)', opacity: 0.6 }}>
+        <div className="pointer-events-none select-none" style={{ opacity: 0.6 }}>
           <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-zinc-800">
             <category.icon className="h-7 w-7 text-gold-accent/50" />
           </div>
@@ -164,6 +164,16 @@ function LockedCategoryCard({ category, index }: { category: Category; index: nu
             ))}
           </div>
         </div>
+
+        <div
+          className="pointer-events-none absolute inset-0 rounded-2xl"
+          style={{
+            backdropFilter: 'blur(5px)',
+            WebkitBackdropFilter: 'blur(5px)',
+            maskImage: 'linear-gradient(to bottom, transparent 0%, black 60%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 60%)',
+          }}
+        />
 
         <motion.div
           className="absolute inset-0 z-10 flex cursor-not-allowed flex-col items-center justify-center"
